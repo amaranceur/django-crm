@@ -1,0 +1,78 @@
+{% extends 'website/base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    
+<table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Number</th>
+        <th scope="col">Address</th>
+        <th scope="col">City</th>
+        <th scope="col">State</th>
+        <th scope="col">Zipcode</th>
+        <th scope="col">Created at</th>
+        <th scope="col">Id</th>
+
+
+
+
+
+      </tr>
+    </thead>
+ 
+ 
+    <tbody>
+        {% if records %}
+        
+        {% for record in records  %}
+    
+           
+      <tr>
+        <th>{{record.first_name}} {{record.last_name}}</td>
+        <td>{{record.email}}</td>
+        <td>{{record.number}}</td>
+        <td>{{record.address}}</td>
+        <td>{{record.city}}</td>
+        <td>{{record.state}}</td>
+        <td>{{record.zipcode}}</td>
+        <td>{{record.created_at}}</th>
+        <td><a href="{% url 'record' record.id  %}">{{record.id}}</a></th>
+
+
+      </tr>
+      
+     
+      {% endfor %}
+        
+    {% endif %}
+    </tbody>
+  </table>
+  
+        
+    
+
+{% else %}
+
+<div class="md-5">
+<form method="POST">
+    {% csrf_token %}  <div class="mb-3">
+        <input type="text" class="form-control" aria-describedby="emailHelp" name="username">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+</div>
+
+{% endif %}
+{% endblock content %}

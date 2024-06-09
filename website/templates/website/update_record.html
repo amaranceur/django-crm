@@ -1,0 +1,44 @@
+{% extends 'website/base.html' %}
+
+{% block content %}
+<form action="" method="POST">
+    <h2>Add Record</h2>
+    {% csrf_token %}
+    <form>
+        
+        
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="first_name" value="{{customer.first_name}}">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="last_name"value="{{customer.last_name}}">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label" >Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"value="{{customer.email}}">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Number</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="number"value="{{customer.number}}">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">State</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="state"value="{{customer.state}}">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">zipcode</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="zipcode"value="{{customer.zipcode}}">
+          </div>
+          
+
+        
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Update record</button>
+      </form>
+</form>{% endblock content %}
+    
